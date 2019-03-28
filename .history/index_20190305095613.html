@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网络智慧运营平台</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet/less" href="css/styles.less">
+    <script src="js/less-1.7.0.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/ckplayer.min.js"></script>
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=rblQZZpfydYCoHsZygzzL3UM11d5mZhf"></script> -->
+</head>
+<body>
+    <div class="wrap">
+        <!-- 左侧 -->
+        <div>
+            <h3></h3>
+            <!-- 第一列 -->
+            <div>
+                <!-- 时间 && 天气-->
+                <div>
+                    <ul>
+                        <li>
+                            <p id="time"></p>
+                            <p><span id="week"></span><span id="calDate"></span></p>
+                        </li>
+                        <li>
+                            <p></p>
+                            <p></p>
+                            <p id="date"></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 第二列 -->
+            <div>
+                
+            </div>
+        </div>
+        <!-- 中间 -->
+        <div>
+            <h3></h3>
+        </div>
+        <!-- 右侧 -->
+        <div>
+            <h3></h3>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/calendarDay.js"></script>
+<script src="js/countUp.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+
+
+   /*  var videoObject = {
+		container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
+        variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+        autoplay: true,
+		video:'rtmp://58.200.131.2:1935/livetv/hunantv'//视频地址
+	};
+	var player=new ckplayer(videoObject); */
+    
+</script>
+<!-- <script>
+    var map = new BMap.Map("container");
+    var point = new BMap.Point(116.404, 39.915);
+    map.centerAndZoom(point, 12);
+    //map.enableScrollWheelZoom();
+    map.setMapStyle({
+        features: ["road", "building","water","land"],
+        styleJson:[
+            {
+                "featureType": "highway",
+                "elementType": "geometry",
+                "stylers": {
+                    "hue": "#5296bb",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "background",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#01031aff",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "poilabel",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "local",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "subway",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "arterial",
+                "elementType": "geometry",
+                "stylers": {
+                    "color": "#02234cff",
+                    "hue": "#02234c",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "town",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "highway",
+                "elementType": "labels",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "railway",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            }
+        ]
+    });
+</script> -->

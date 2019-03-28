@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- <script src="js/less-1.7.0.min.js"></script> -->
+    <script src="js/echarts.js"></script>
+    <script src="js/ckplayer.min.js"></script>
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=rblQZZpfydYCoHsZygzzL3UM11d5mZhf"></script> -->
+    <style>
+        .anchorBL{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 左侧 -->
+    <div class="wrap_l">
+        <!-- 页头装饰 -->
+        <div class="header"></div>
+        <!--左上角时间及天气-->
+        <div class="title">
+            <!--时间日期-->
+            <div>
+                <p id="time"></p>
+                <p>
+                    <span id="week"></span>
+                    <span id="calDate"></span>
+                </p>
+                <p id="scrollBox">
+                    <span>通告：尊敬的各位感谢使用中国电信网络生产指挥系统</span>
+                </p>
+            </div>
+            <!--天气-->
+            <div>
+                <p>
+                    <i id="weather"></i>
+                    <span id="temperature"></span>
+                </p>
+                <p>
+                    <span id="winddirection"></span>
+                    <span id="windpower"></span>
+                </p>
+                <p>
+                    <span id="date"></span>
+                </p>
+            </div>
+        </div>
+        <!--值班班长-->
+        <div class="box-1">
+            <div class="box_1">
+                <div class="box_1_container">
+                    <div class="box_1_top">
+                        <div class="box_1_title">
+                            <span></span>
+                        </div>
+                        <div class="box_1_bz">
+                            <div class="box_1_items">
+                                <div class="box_1_item">
+                                    <img src="./images/box01_ava.png" class="box_1_item_ava" alt="">
+                                    <span class="box_1_item_name">张三</span>
+                                    <span class="box_1_item_phone">18100000000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box_1_line"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 工单监控 -->
+        <div class="box-2">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    <span>待处理工单</span>
+                    <span>处理中工单</span>
+                    <span>已完成工单</span>
+                </p>
+                <ul>
+                    <li>
+                        <span>客户工单（政企）</span>
+                        <span id="num_zq_1">0</span>
+                        <span id="num_zq_2">0</span>
+                        <span id="num_zq_3">0</span>
+                    </li>
+                    <li>
+                        <span>客户工单（移动）</span>
+                        <span id="num_yd_1">45</span>
+                        <span id="num_yd_2">45</span>
+                        <span id="num_yd_3">45</span>
+                    </li>
+                    <li>
+                        <span>客户工单（宽带）</span>
+                        <span id="num_kd_1">100</span>
+                        <span id="num_kd_2">100</span>
+                        <span id="num_kd_3">100</span>
+                    </li>
+                    <li>
+                        <span>网络工单</span>
+                        <span id="num_wl_1">200</span>
+                        <span id="num_wl_2">200</span>
+                        <span id="num_wl_3">200</span>
+                    </li>
+                    <li>
+                        <span></span>
+                        <span>
+                            <i>处理及时率</i>
+                            <canvas id="c_1"></canvas>
+                            <div>
+                                <span>5%</span>
+                            </div>
+                        </span>
+                        <span>
+                            <i>反馈及时率</i>
+                            <canvas id="c_2"></canvas>
+                            <div>
+                                <span>30%</span>
+                            </div>
+                        </span>
+                        <span>
+                            <i>反馈和回单有效率</i>
+                            <canvas id="c_3"></canvas>
+                            <div>
+                                <span>50%</span>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 网络监控 -->
+        <div class="box-3">
+            <div class="head">
+                <div></div>
+                <div>
+                    <p>当前告警总数：<span>38</span></p>
+                </div>
+                <div>
+                    <p>当前告警收敛派单数：<span>67</span></p>
+                </div>
+            </div>
+            <div class="content">
+                <div id="gongdan" class="left">
+                    <div class="title">
+                        <h3>工单统计</h3>
+                        <p><span></span>工单</p>
+                        <p><span></span>故障定位准确率</p>
+                    </div>
+                    <div id="echarts_1"></div>
+                </div>
+                <div id="gaojing" class="right">
+                    <div class="title">
+                        <h3>无线类告警趋势</h3>
+                    </div>
+                    <div id="echarts_2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 感知监控-->
+        <div class="box-4">
+            <div class="title ganzhi"></div>
+            <div class="con_1">
+                <ul>
+                    <li>
+                        <p>宽带业务</p>
+                        <canvas id="c1"></canvas>
+                        <p>宽带感知优良率</p>
+                        <div>
+                            <span>50%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>移动数据业务</p>
+                        <canvas id="c2"></canvas>
+                        <p>4G客户感知优良率</p>
+                        <div>
+                            <span>50%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>移动语音业务</p>
+                        <canvas id="c3"></canvas>
+                        <p>无线掉线率</p>
+                        <div>
+                            <span>50%</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="con_2">
+                <ul>
+                    <li>
+                        <p>移动语音业务</p>
+                        <canvas id="c4"></canvas>
+                        <p>呼叫接通率</p>
+                        <div>
+                            <span>50%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>VoLTE业务</p>
+                        <canvas id="c5"></canvas>
+                        <p>呼叫接通率</p>
+                        <div>
+                            <span>50%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>NB-loT业务</p>
+                        <canvas id="c6"></canvas>
+                        <p>网络附着成功率</p>
+                        <div>
+                            <span>50%</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 中间部分 -->
+    <div class="wrap_m">
+        <div class="top"></div>
+        <div class="main">
+            <div class="con_1">
+               <!--  <div class="map">
+                    <div></div>
+                    <ul>
+                        <li>
+                            <p>重保酒店</p>
+                            <p>3</p>
+                        </li>
+                        <li>
+                            <p>重保客户数</p>
+                            <p>249,839,261</p>
+                        </li>
+                        <li>
+                            <p>重保专线数</p>
+                            <p>67</p>
+                        </li>
+                        <li>
+                            <p>保障基站数</p>
+                            <p>38</p>
+                        </li>
+                        <li>
+                            <p>应急车辆数</p>
+                            <p>7</p>
+                        </li>
+                        <li>
+                            <p>保障人员数</p>
+                            <p>300</p>
+                        </li>
+                    </ul>
+                    <div id="container" style=" overflow: hidden"></div>
+                    <ul>
+                        <li>
+                            <span></span>
+                            <span>核心节点</span>
+                        </li>
+                        <li>
+                            <span></span>
+                            <span>汇聚节点</span>
+                        </li>
+                    </ul>
+                </div> -->
+                <div class="link_box">
+                    <iframe sandbox="allow-forms allow-scripts allow-same-origin allow-popups" id="iframe" src="" frameborder="0"></iframe>
+                </div>
+                <a href="javascript:void(0)" id="back-home">返回</a>
+                <div class="home" id="link_list">
+                    <div>
+                        <p></p>
+                        <ul>
+                            <li id="link_0">IP城域网网管系统</li>
+                            <li id="link_1">云网随选平台</li>
+                            <li class="disabled" id="link_2">IDC智能机房</li>
+                            <li id="link_3">NTG网管</li>
+                            <li id="link_4">DNS域名综合管理系统</li>
+                            <li id="link_5">政企客户服务支撑系统</li>
+                            <li id="link_6">华思IPRAN网管</li>
+                            <li id="link_7">IDC客户自助服务平台</li>
+                            <li id="link_8">IDC综合网管</li>
+                        </ul>
+                        <ul>
+                            <li id="link_9">集团大客户网管</li>
+                            <li id="link_10">集团IP一体化网管</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p></p>
+                        <ul>
+                            <li id="link_11">IDC/ISP信息安全管理系统</li>
+                            <li id="link_12">明御APT攻击预警平台</li>
+                            <li id="link_13">自营网站防篡改</li>
+                            <li id="link_14">防诈骗监控平台</li>
+                            <li id="link_15">网站安全监测平台</li>
+                        </ul>
+                        <ul>
+                            <li id="link_16">云堤</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p></p>
+                        <ul>
+                            <li class="disabled" id="link_17">移动分组域AAA、AN-AAA<br>专业网管</li>
+                            <li id="link_18">业务平台综合网管</li>
+                            <li class="disabled" id="link_19">基站动环网管</li>
+                            <li id="link_20">IPRAN网管</li>
+                            <li id="link_21">WIFI网管</li>
+                            <li class="disabled" id="link_22">直放站网管</li>
+                            <li class="disabled" id="link_23">天元综合网管</li>
+                            <li id="link_24">EPC网管</li>
+                            <li id="link_25">移动业务数据采集分析系统</li>
+                            <li class="disabled" id="link_26">核心网分组域网管</li>
+                            <li id="link_27">基站可视化系统</li>
+                            <li class="disabled" id="link_28">核心网电路域网管</li>
+                            <li id="link_29">GIS投诉预处理系统</li>
+                            <li class="disabled" id="link_30">3G/4G基站网管</li>
+                            <li id="link_31">4G无线感知分析系统</li>
+                        </ul>
+                        <ul>
+                            <li id="link_32">物联网端到端保障系统</li>
+                            <li id="link_33">集团VOLTE综合网管</li>
+                            <li id="link_34">集团EPC综合网管</li>
+                            <li id="link_35">集团3G网优平台</li>
+                            <li id="link_36">集团4G网优平台</li>
+                            <li id="link_37">集团4G无线综合网管</li>
+                            <li id="link_38">集团4G无线感知系统</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p></p>
+                        <ul>
+                            <li class="disabled" id="link_39">宽带装维APP</li>
+                            <li id="link_40">PON综合网管</li>
+                            <li class="disabled" id="link_41">IPTV平台厂家网管</li>
+                            <li class="disabled" id="link_42">IPTV轮巡监控及防插播监控</li>
+                            <li id="link_43">光网智能分析系统</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p></p>
+                        <ul>
+                            <li id="link_44">应急指挥保障指挥系统</li>
+                            <li id="link_45">故障工单系统</li>
+                            <li id="link_46">友好客户业务劣化分析系统</li>
+                            <li id="link_47">综合告警系统</li>
+                            <li class="disabled" id="link_48">资源管理系统</li>
+                            <li id="link_49">业务开通系统</li>
+                        </ul>
+                        <ul>
+                            <li id="link_50">集团电子运维</li>
+                            <li class="disabled" id="link_51">集团一站</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="bottom"></div>
+    </div>
+    <!-- 右侧 -->
+    <div class="wrap_r">
+        <!-- 页头装饰 -->
+        <div class="header"></div>
+        <!-- 左侧拓扑图 -->
+        <div class="con_1">
+            <div id="tab_idc" class="title">
+                <span>IDC数据网流量</span>
+                <ul>
+                    <li>IDC数据网流量</li>
+                    <li>IDC数据网流量</li>
+                    <li>城域网数据流量</li>
+                </ul>
+                <i></i>
+            </div>
+            <div id="mynetwork">
+                <div class="gg_cy">北京电信城域网</div>
+                <div class="gg_ip">中国电信IP骨干网</div>
+                <div class="gg_cy"></div>
+                <div class="gg_ip"></div>
+                <div class="hx_yf"></div>
+                <div class="hx_yz"></div>
+                <div class="hx_ds"></div>
+                <div class="hx_zw"></div>
+                <div class="hj_yh">
+                    <i></i>
+                    <p>亦庄瀛海</p>
+                    <p>CE12812</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_cp">
+                    <i></i>
+                    <p>昌平未来</p>
+                    <p>科技城</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                    <p>CE12812</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_yf">
+                    <i></i>
+                    <p>永丰</p>
+                    <p>S9306</p>
+                    <p>2台</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_zw">
+                    <i></i>
+                    <p>兆维</p>
+                    <p>S9312</p>
+                    <p>10台</p>
+                    <p>S9306</p>
+                    <p>2台</p>
+                    <p>CE12812</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_zx">
+                    <i></i>
+                    <p>中兴马驹桥</p>
+                    <p>CE12812</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_jx">
+                    <i></i>
+                    <p>酒仙桥</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                    <p>CE12812</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_yz">
+                    <i class="yj"></i>
+                    <p>亦庄</p>
+                    <p>S9306</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_dw">
+                    <i></i>
+                    <p>德外</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_dj">
+                    <i></i>
+                    <p>大郊亭</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_zg">
+                    <i></i>
+                    <p>中广亚</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_ds">
+                    <i></i>
+                    <p>东四</p>
+                    <p>S9312</p>
+                    <p>1台</p>
+                </div>
+                <div class="hj_yq">
+                    <i class="gj"></i>
+                    <p>洋桥</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_ja">
+                    <i></i>
+                    <p>静安</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_ay">
+                    <i></i>
+                    <p>奥运</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_lf">
+                    <i></i>
+                    <p>廊坊润泽</p>
+                    <p>CE12812</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_wj">
+                    <i class="yj"></i>
+                    <p>望京嘉轩</p>
+                    <p>CE12812</p>
+                    <p>2台</p>
+                </div>
+                <div class="hj_sd">
+                    <i></i>
+                    <p>上地</p>
+                    <p>S9312</p>
+                    <p>2台</p>
+                </div>
+                <canvas width="2400" height="1980" id="canvas_1"></canvas>
+                <div>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                </div>
+            </div>
+            <div id="mynetwork_1">
+                <div class="gg_163">163</div>
+                <div class="gg_cn2">CN2</div>
+                <div class="gg_idc">IDC</div>
+                <div class="gg_iptv">IPTV</div>
+                <div class="gg_163"></div>
+                <div class="gg_cn2"></div>
+                <div class="gg_idc"></div>
+                <div class="gg_iptv"></div>
+                <div class="hx_ja"></div>
+                <div class="hx_xd"></div>
+                <div class="hx_dw"></div>
+                <div class="hx_ds"></div>
+                <div>
+                    <ul id="hj_wrap">
+                        <li class="hj_sr">
+                            <span></span>
+                            <span></span>
+                            <p>SR</p>
+                        </li>
+                        <li class="hj_bas">
+                            <span></span>
+                            <span></span>
+                            <p>BAS</p>
+                        </li>
+                        <li class="hj_mse">
+                            <span></span>
+                            <span></span>
+                            <p>MSE</p>
+                        </li>
+                    </ul>
+                </div>
+                <canvas width="2400" height="1980" id="canvas_2"></canvas>
+                <div>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                    <span></span>
+                    <span class="blue"></span>
+                </div>
+            </div>
+        </div>
+        <!-- 安全监控 -->
+        <div id="con_aq" class="con_aq">
+            <div class="title anquan"></div>
+            <div class="tab_con">
+                <ul id="dun">
+                    <li class="act">
+                        <p>网页篡改数</p>
+                        <p>0</p>
+                    </li>
+                    <li class="act">
+                        <p>DDos防护重保客户数</p>
+                        <p>200</p>
+                    </li>
+                    <li class="act">
+                        <p>DNS防护域名数</p>
+                        <p>200</p>
+                    </li>
+                    <li class="act">
+                        <p>安全监控资产数</p>
+                        <p>200</p>
+                    </li>
+                </ul>
+                <!-- <div class="chart_box">
+                            <div id="chart_1_w">
+                                <div id="chart_1"></div>
+                            </div>
+                        </div> -->
+                <div id="iptv_box">
+                    <div id="video"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧拓扑图数据展示 -->
+        <div id="con_idc" class="con_2">
+            <a id="close_idc" href="javascript:void(0)">关闭</a>
+            <div class="tab clear">
+                <ul id="tab">
+                    <li class="act">天</li>
+                    <li>周</li>
+                </ul>
+            </div>
+            <div class="title">
+                <p><span id="txt">汇聚层</span><span id="txt_sub">亦庄瀛海</span></p>
+            </div>
+            <div class="top">
+                <ul id="flow_wrap"></ul>
+            </div>
+            <div id="idc" class="last">
+                <div class="title">
+                    <h3><span id="flow_name">IDC</span>出口流量（单位：G/s）</h3>
+                    <p><span></span>流入</p>
+                    <p><span></span>流出</p>
+                </div>
+                <div id="echarts_last"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/calendarDay.js"></script>
+<script src="js/countUp.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    var abc = '10';
+    window.setTimeout(function(){
+        myCanvas('c_1',abc,'#13aec0','#06263c',20);
+    });
+
+
+    var videoObject = {
+		container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
+        variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+        autoplay: true,
+		video:'rtmp://58.200.131.2:1935/livetv/hunantv'//视频地址
+	};
+	var player=new ckplayer(videoObject);
+    
+</script>
+<!-- <script>
+    var map = new BMap.Map("container");
+    var point = new BMap.Point(116.404, 39.915);
+    map.centerAndZoom(point, 12);
+    //map.enableScrollWheelZoom();
+    map.setMapStyle({
+        features: ["road", "building","water","land"],
+        styleJson:[
+            {
+                "featureType": "highway",
+                "elementType": "geometry",
+                "stylers": {
+                    "hue": "#5296bb",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "background",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#01031aff",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "poilabel",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "local",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "subway",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "arterial",
+                "elementType": "geometry",
+                "stylers": {
+                    "color": "#02234cff",
+                    "hue": "#02234c",
+                    "visibility": "on"
+                }
+            },
+            {
+                "featureType": "town",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "highway",
+                "elementType": "labels",
+                "stylers": {
+                    "visibility": "off"
+                }
+            },
+            {
+                "featureType": "railway",
+                "elementType": "all",
+                "stylers": {
+                    "visibility": "off"
+                }
+            }
+        ]
+    });
+</script> -->

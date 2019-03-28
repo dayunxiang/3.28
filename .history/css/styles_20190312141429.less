@@ -1,0 +1,950 @@
+@font-face{
+    font-family: 'myfont';
+    src: url('../font/DS-Digital.TTF');
+}
+html,body{
+    background-color: #02041b;
+    >div.wrap{
+        display: flex;
+        width: 6384px;
+        height: 1216px;
+        >div{
+            position: relative;
+            flex: 1;
+            /* title */
+            >h3:first-child{
+                position: absolute;
+                top: 0;
+                height: 125px;
+            }
+            /* 左侧 */
+            &:nth-child(1){
+                >h3:first-child{
+                    right: 0;
+                    width: 1535px;
+                    background: url(../images/title_left.png) center no-repeat;
+                    background-size: cover;
+                }
+                >div{
+                    float: left;
+                    height: 100%;
+                    /* 左侧第一列 */
+                    &:nth-child(2){
+                        box-sizing: border-box;
+                        padding-left: 50px;
+                        width: 760px;
+                        >div{
+                            /* 时间 && 天气 && 通知滚动 */
+                            &:nth-child(1){
+                                >ul{
+                                    box-sizing: border-box;
+                                    display: flex;
+                                    padding-top: 44px;
+                                    height: 200px;
+                                    color: #ffffff;
+                                    li{
+                                        flex: 1;
+                                        /* 时间 */
+                                        &:nth-child(1){
+                                            width: 375px;
+                                            p{
+                                                line-height: 1em;
+                                                &:nth-child(1){
+                                                    margin-bottom: 18px;
+                                                    font-size: 78px;
+                                                }
+                                                &:nth-child(2){
+                                                    padding-left: 12px;
+                                                    font-size: 36px;
+                                                    span{
+                                                        &:nth-child(1){
+                                                            margin-right: 24px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        /* 天气 */
+                                        &:nth-child(2){
+                                            box-sizing: border-box;
+                                            padding-left: 20px;
+                                            width: 385px;
+                                            p{
+                                                line-height: 1em;
+                                                &:nth-child(1){
+                                                    font-size: 46px;
+                                                    span{
+                                                        &:nth-child(1){
+                                                            margin-right: 18px;
+                                                        }
+                                                    }
+                                                }
+                                                &:nth-child(2){
+                                                    margin: 16px 0;
+                                                    font-size: 30px;
+                                                    span{
+                                                        &:nth-child(1){
+                                                            margin-right: 30px;
+                                                        }
+                                                    }
+                                                }
+                                                &:nth-child(3){
+                                                    font-size: 30px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                /* 通知滚动 */
+                                >p{
+                                    position: relative;
+                                    width: 670px;
+                                    height: 70px;
+                                    overflow: hidden;
+                                    span{
+                                        position: absolute;
+                                        width: 100%;
+                                        font-size: 24px;
+                                        line-height: 70px;
+                                        color: #1ca2e4;
+                                    }
+                                }
+                            }
+                            /* 值班长 && 当前重保 */
+                            &:nth-child(2){
+                                box-sizing: border-box;
+                                margin: 30px 0 40px;
+                                width: 655px;
+                                height: 236px;
+                                border-bottom: 2px dashed #50c7ff;
+                                >ul{
+                                    display: flex;
+                                    li{
+                                        &:nth-child(1){
+                                            width: 364px;
+                                            h3{
+                                                width: 145px;
+                                                height: 57px;
+                                                background: url(../images/title_banzhang.png) center no-repeat;
+                                                background-size: cover;
+                                            }
+                                            >p{
+                                                padding-left: 12px;
+                                                font-size: 24px;
+                                                line-height: 62px;
+                                                color: rgba(255,255,255,.3);
+                                            }
+                                            >div{
+                                                position: relative;
+                                                margin-left: 12px;
+                                                width: 242px;
+                                                height: 93px;
+                                                background: url(../images/photo_wrap.png) center no-repeat;
+                                                background-size: cover;
+                                                div{
+                                                    position: absolute;
+                                                    top: 5px;
+                                                    left: 4px;
+                                                    overflow: hidden;
+                                                    box-sizing: border-box;
+                                                    width: 82px;
+                                                    height: 82px;
+                                                    border: 1px solid #052e5c;
+                                                    border-radius: 5px;
+                                                    background-color: #07123e;
+                                                    img{
+                                                        width: 100%;
+                                                        height: 100%;
+                                                    }
+                                                }
+                                                p{
+                                                    position: absolute;
+                                                    &:nth-child(2){
+                                                        top: 0;
+                                                        left: 128px;
+                                                        width: 104px;
+                                                        font-size: 32px;
+                                                        text-align: center;
+                                                        line-height: 1em;
+                                                        color: #ffffff;
+                                                    }
+                                                    &:nth-child(3){
+                                                        left: 120px;
+                                                        bottom: 4px;
+                                                        font-size: 32px;
+                                                        line-height: 1em;
+                                                        color: rgba(255,255,255,.3);
+                                                    }
+                                                    &:nth-child(4){
+                                                        right: -74px;
+                                                        top: 2px;
+                                                        width: 63px;
+                                                        height: 30px;
+                                                        font-size: 22px;
+                                                        text-align: center;
+                                                        color: #00a0e9;
+                                                        background: url(../images/baiban.png) center no-repeat;
+                                                        background-size: cover;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &:nth-child(2){
+                                            position: relative;
+                                            padding-left: 38px;
+                                            h3{
+                                                width: 145px;
+                                                height: 57px;
+                                                background: url(../images/title_zhongbao.png) center no-repeat;
+                                                background-size: cover;
+                                            }
+                                            p{
+                                                padding-left: 8px;
+                                                font-size: 32px;
+                                                line-height: 150px;
+                                                color: #ffffff;
+                                            }
+                                            div{
+                                                position: absolute;
+                                                top: 34px;
+                                                left: 0;
+                                                width: 1px;
+                                                height: 170px;
+                                                background-color: #054a86;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            /* 全网业务监控 */
+                            &:nth-child(3){
+                                h3{
+                                    margin-bottom: 30px;
+                                    width: 198px;
+                                    height: 57px;
+                                    background: url(../images/title_yewu.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                >div{
+                                    ul{
+                                        display: flex;
+                                        margin-left: 10px;
+                                        width: 680px;
+                                        &:nth-child(1){
+                                            margin-bottom: 30px;
+                                        }
+                                        li{
+                                            position: relative;
+                                            flex: 1;
+                                            height: 234px;
+                                            text-align: center;
+                                            &:not(:last-child){
+                                                margin-right: 40px;
+                                            }
+                                            p{
+                                                &:nth-child(1){
+                                                    font-size: 28px;
+                                                    line-height: 70px;
+                                                    color: #50c7ff;
+                                                }
+                                                &:nth-child(3){
+                                                    font-size: 22px;
+                                                    line-height: 46px;
+                                                    color: #ffffff;
+                                                }
+                                            }
+                                            >div{
+                                                position: absolute;
+                                                bottom: 56px;
+                                                width: 100%;
+                                                height: 0px;
+                                                font-size: 16px;
+                                                text-align: right;
+                                                color: #ffffff;
+                                                border-top: 1px dashed red;
+                                                z-index: 100;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                    /* 左侧第二列 */
+                    &:nth-child(3){
+                        box-sizing: border-box;
+                        padding-top: 100px;
+                        width: 1368px;
+                        /* 网络故障管控 */
+                        >div{
+                            box-sizing: border-box;
+                            padding: 16px 64px 0;
+                            width: 1350px;
+                            height: 1074px;
+                            border: 4px solid #015282;
+                            &:nth-child(1){
+                                h2{
+                                    margin: 0 auto;
+                                    width: 467px;
+                                    height: 50px;
+                                    background: url(../images/title_guankong.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                >div{
+                                    /* 全网告警监控 */
+                                    &:nth-child(2){
+                                        position: relative;
+                                        h3{
+                                            width: 195px;
+                                            height: 57px;
+                                            background: url(../images/title_gaojing.png) center no-repeat;
+                                            background-size: cover;
+                                        }
+                                        >p{
+                                            position: absolute;
+                                            top: 0;
+                                            right: 4px;
+                                            width: 334px;
+                                            height: 76px;
+                                            background: url(../images/title_gaojing_2.png) center no-repeat;
+                                            background-size: cover;
+                                            span{
+                                                position: absolute;
+                                                bottom: 10px;
+                                                right: 50px;
+                                                font-family: 'myfont';
+                                                font-size: 38px;
+                                                color: #f0bd26;
+                                            }
+                                        }
+                                        >div{
+                                            margin: 40px 0 30px;
+                                            display: flex;
+                                            >div{
+                                                box-sizing: border-box;
+                                                height: 300px;
+                                                border: 2px solid #00a0e9;
+                                                border-radius: 20px;
+                                                background: linear-gradient(180deg, #020b2e, #02051d);
+                                                box-shadow: 0px 0px 60px 0px rgba(7, 140, 235, 0.5) inset;
+                                                /* 工单告警统计 */
+                                                &:nth-child(1){
+                                                    margin-right: 28px;
+                                                    width: 616px;
+                                                }
+                                                &:nth-child(2){
+                                                    width: 566px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        h3{
+                                            width: 195px;
+                                            height: 57px;
+                                            background: url(../images/title_diaodu.png) center no-repeat;
+                                            background-size: cover;
+                                        }
+                                        >div{
+                                            margin-top: 22px;
+                                            box-sizing: border-box;
+                                            width: 1214px;
+                                            height: 465px;
+                                            border: 2px solid #00a0e9;
+                                            border-radius: 20px;
+                                            background: linear-gradient(180deg, #020b2e, #02051d);
+                                            box-shadow: 0px 0px 60px 0px rgba(7, 140, 235, 0.5) inset;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /* 中间 */
+            &:nth-child(2){
+                transform-style: preserve-3d;
+                >h3:first-child{
+                    right: 0;
+                    width: 2128px;
+                    background: url(../images/title_middle.png) center no-repeat;
+                    background-size: cover;
+                }
+                >a{
+                    display: none;
+                    position: absolute;
+                    top: 90px;
+                    right: 30px;
+                    box-sizing: border-box;
+                    width: 100px;
+                    height: 40px;
+                    font-size: 24px;
+                    text-align: center;
+                    line-height: 36px;
+                    color: #00a0e9;
+                    border: 2px solid #015282;
+                }
+                >span{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    width: 1920px;
+                    height: 395px;
+                    background: url(../images/middle_bg.png) center no-repeat;
+                    background-size: cover;
+                }
+                >div{
+                    position: absolute;
+                    top: 150px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    box-sizing: border-box;
+                    width: 2092px;
+                    height: 1024px;
+                    border: 4px solid #015282;
+                    iframe{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    /* 链接列表第一页 */
+                    >div.link-list-1{
+                        
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        display: flex;
+                        box-sizing: border-box;
+                        padding-top: 22px;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #02041b;
+                        z-index: 1;
+                        >div{
+                            position: relative;
+                            display: flex;
+                            flex: 1;
+                            width: 400px;
+                            justify-content: center;
+                            p{
+                                width: 400px;
+                                height: 50px;
+                            }
+                            ul{
+                                position: absolute;
+                                left: 50px;
+                                box-sizing: border-box;
+                                padding: 70px 0 0 50px;
+                                width: 239px;
+                                z-index: 1000;
+                                li{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    box-sizing: border-box;
+                                    margin-bottom: 20px;
+                                    width: 220px;
+                                    height: 40px;
+                                    font-size: 24px;
+                                    border-radius: 10px;
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                                    &.disabled{
+                                        color: #6c6c6c!important;
+                                        &:hover{
+                                            background-color: transparent!important;
+                                            cursor: not-allowed;
+                                        }
+                                    }
+                                }
+                            }
+                            &:nth-child(1){
+                                p{
+                                    background: url(../images/mt_1.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #04a6dd;
+                                        border: 1px solid #04a6dd;
+                                        &:hover{
+                                            color: #37e2ff;
+                                            background-color: rgba(4, 166, 221, 0.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 85px;
+                                        height: 570px;
+                                        background: url(../images/m_con_1.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(4),&:nth-child(5),&:nth-child(7){
+                                                width: 270px;
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 722px;
+                                        height: 150px;
+                                        background: url(../images/m_con_2.png) center no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
+                            }
+                            &:nth-child(2){
+                                p{
+                                    background: url(../images/mt_2.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #1092e6;
+                                        border: 1px solid #1092e6;
+                                        &:hover{
+                                            color: #78c6f8;
+                                            background-color: rgba(16, 146, 230, 0.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 85px;
+                                        height: 330px;
+                                        background: url(../images/m_con_3.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(1){
+                                                width: 300px;
+                                            }
+                                            &:nth-child(2){
+                                                width: 270px;
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 480px;
+                                        height: 90px;
+                                        background: url(../images/m_con_4.png) center no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
+                            }
+                            &:nth-child(3){
+                                p{
+                                    background: url(../images/mt_3.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #3fd2bf;
+                                        border: 1px solid #3fd2bf;
+                                        &:hover{
+                                            color: #8efff0;
+                                            background-color: rgba(63, 210, 191, 0.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 85px;
+                                        height: 860px;
+                                        background: url(../images/m_con_5.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(1){
+                                                width: 320px;
+                                                height: 70px;
+                                                text-align: center;
+                                            }
+                                            &:nth-child(8){
+                                                margin-bottom: 30px;
+                                                width: 300px;
+                                            }
+                                            &:nth-child(10){
+                                                margin-bottom: 30px;
+                                            }
+                                            &:nth-child(13){
+                                                position: absolute;
+                                                left: -209px;
+                                                top: 620px;
+                                            }
+                                            &:nth-child(15){
+                                                position: absolute;
+                                                top: 690px;
+                                                left: -309px;
+                                                width: 320px;
+                                                height: 70px;
+                                                text-align: center;
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 493px;
+                                        left: 470px;
+                                        height: 450px;
+                                        background: url(../images/m_con_6.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(1),&:nth-child(2),&:nth-child(6),&:nth-child(7){
+                                                width: 260px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &:nth-child(4){
+                                p{
+                                    background: url(../images/mt_4.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul:nth-child(2){
+                                    top: 85px;
+                                    left: 50px;
+                                    height: 330px;
+                                    background: url(../images/m_con_7.png) center no-repeat;
+                                    background-size: cover;
+                                    li{
+                                        width: 250px;
+                                        color: #595edc;
+                                        border: 1px solid #595edc;
+                                        &:hover{
+                                            color: #b093ff;
+                                            background-color: rgba(89, 94, 220, 0.4);
+                                        }
+                                        &:nth-child(4){
+                                            width: 320px;
+                                        }
+                                    }
+                                }
+                            }
+                            &:nth-child(5){
+                                p{
+                                    background: url(../images/mt_5.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #fd4986;
+                                        border: 1px solid #fd4986;
+                                        &:hover{
+                                            color: #ff99bc;
+                                            background-color: rgba(253, 73, 134, 0.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 85px;
+                                        height: 390px;
+                                        background: url(../images/m_con_8.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(3){
+                                                width: 300px;
+                                            }
+                                            &:nth-child(5){
+                                                width: 260px;
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 540px;
+                                        height: 150px;
+                                        background: url(../images/m_con_9.png) center no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
+                            }
+                        }
+                        >a{
+                            position: absolute;
+                            right: 25px;
+                            bottom: 25px;
+                            width: 30px;
+                            height: 26px;
+                            background: url(../images/fanye.png) center no-repeat;
+                            background-size: cover;
+                            z-index: 10;
+                        }
+                    }
+                    /* 链接列表第二页 */
+                    >div.link-list-2{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: flex;
+                        box-sizing: border-box;
+                        padding-top: 22px;
+                        width: 100%;
+                        height: 100%;
+                        background-color: #02041b;
+                        transform: rotateY(-180deg);
+                        >div{
+                            position: relative;
+                            display: flex;
+                            flex: 1;
+                            width: 500px;
+                            justify-content: center;
+                            p{
+                                width: 500px;
+                                height: 50px;
+                            }
+                            ul{
+                                position: absolute;
+                                left: 90px;
+                                box-sizing: border-box;
+                                padding: 70px 0 0 50px;
+                                width: 239px;
+                                z-index: 1000;
+                                li{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    box-sizing: border-box;
+                                    margin-bottom: 20px;
+                                    width: 220px;
+                                    height: 40px;
+                                    font-size: 24px;
+                                    border-radius: 10px;
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                                    &.disabled{
+                                        color: #6c6c6c!important;
+                                        &:hover{
+                                            background-color: transparent!important;
+                                            cursor: not-allowed;
+                                        }
+                                    }
+                                }
+                            }
+                            &:nth-child(1){
+                                p{
+                                    background: url(../images/mt_1_2.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #1092e6;
+                                        border: 1px solid #1092e6;
+                                        &:hover{
+                                            color: #7cccff;
+                                            background-color: rgba(16,146,230,.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 80px;
+                                        height: 270px;
+                                        background: url(../images/m_con_1_2.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            width: 310px;
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 410px;
+                                        height: 90px;
+                                        background: url(../images/m_con_2_2.png) center no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
+                            }
+                            &:nth-child(2){
+                                p{
+                                    background: url(../images/mt_2_2.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #595edc;
+                                        border: 1px solid #595edc;
+                                        &:hover{
+                                            color: #b093ff;
+                                            background-color: rgba(82,95,217,.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 80px;
+                                        height: 510px;
+                                        background: url(../images/m_con_3_2.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(5){
+                                                width: 310px;
+                                            }
+                                            &:nth-child(7){
+                                                width: 260px;
+                                            }
+                                            &:nth-child(8){
+                                                width: 280px;
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 652px;
+                                        height: 150px;
+                                        background: url(../images/m_con_4_2.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(2){
+                                                width: 280px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &:nth-child(3){
+                                p{
+                                    background: url(../images/mt_3_2.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #3fd2bf;
+                                        border: 1px solid #3fd2bf;
+                                        &:hover{
+                                            color: #8efff0;
+                                            background-color: rgba(63,210,191,.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 80px;
+                                        height: 330px;
+                                        background: url(../images/m_con_5_2.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(4),&:nth-child(5){
+                                                width: 290px;
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 470px;
+                                        height: 150px;
+                                        background: url(../images/m_con_6_2.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(1){
+                                                width: 300px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &:nth-child(4){
+                                p{
+                                    background: url(../images/mt_4_2.png) center no-repeat;
+                                    background-size: cover;
+                                }
+                                ul{
+                                    li{
+                                        color: #04a6dd;
+                                        border: 1px solid #04a6dd;
+                                        &:hover{
+                                            color: #37e2ff;
+                                            background-color: rgba(6,171,223,.4);
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        top: 80px;
+                                        height: 210px;
+                                        background: url(../images/m_con_7_2.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            &:nth-child(2){
+                                                width: 270px;
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(3){
+                                        top: 350px;
+                                        height: 90px;
+                                        background: url(../images/m_con_8_2.png) center no-repeat;
+                                        background-size: cover;
+                                        li{
+                                            width: 270px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        >a{
+                            position: absolute;
+                            right: 25px;
+                            bottom: 25px;
+                            width: 30px;
+                            height: 26px;
+                            background: url(../images/fanye.png) center no-repeat;
+                            background-size: cover;
+                            z-index: 10;
+                        }
+                    }
+                }
+            }
+            /* 右侧 */
+            &:nth-child(3){
+                >h3:first-child{
+                    left: 0;
+                    width: 1534px;
+                    background: url(../images/title_right.png) center no-repeat;
+                    background-size: cover;
+                }
+                >div{
+                    box-sizing: border-box;
+                    float: left;
+                    padding-top: 130px;
+                    height: 100%;
+                    /* 第一列 */
+                    &:nth-child(2){
+                        width: 1260px;
+                    }
+                    /* 第二列 */
+                    &:nth-child(3){
+                        width: 868px;
+                        >h3{
+                            width: 151px;
+                            height: 57px;
+                            background: url(../images/title_anquan.png) center no-repeat;
+                            background-size: cover;
+                        }
+                        ul{
+                            margin: 55px 0 0 20px;
+                            display: flex;
+                            flex-wrap: wrap;
+                            width: 780px;
+                            li{
+                                width: 33.333333333%;
+                                text-align: center;
+                                p{
+                                    &:nth-child(1){
+                                        font-size: 24px;
+                                        color: #00ffff;
+                                    }
+                                    &:nth-child(2){
+                                        margin: 16px auto 35px;
+                                        width: 100px;
+                                        height: 124px;
+                                        font-size: 34px;
+                                        line-height: 124px;
+                                        color: #81c868;
+                                        background: url(../images/dun.gif) center no-repeat;
+                                        background-size: cover;
+                                    }
+                                }
+                            }
+                        }
+                        >div{
+                            margin: 40px 0 0 20px;
+                            width: 780px;
+                            height: 470px;
+                            >div{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+html,body{
+    background-color: #02041b;
+    >div.wrap{
+        display: flex;
+        width: 6384px;
+        height: 1216px;
+        >div{
+            position: relative;
+            flex: 1;
+            /* 左侧 */
+            &:nth-child(1){
+                h3{
+                    width: 1535px;
+                    height: 146px;
+                    background: url(../images/title_left.png) center no-repeat;
+                    background-size: cover;
+                }
+            }
+            /* 中间 */
+            &:nth-child(2){}
+            /* 右侧 */
+            &:nth-child(3){}
+            >h3:first-child{
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+}

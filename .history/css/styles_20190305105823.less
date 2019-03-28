@@ -1,0 +1,118 @@
+html,body{
+    background-color: #02041b;
+    >div.wrap{
+        display: flex;
+        width: 6384px;
+        height: 1216px;
+        >div{
+            position: relative;
+            flex: 1;
+            /* title */
+            >h3:first-child{
+                position: absolute;
+                top: 0;
+                height: 125px;
+            }
+            /* 左侧 */
+            &:nth-child(1){
+                padding-left: 50px;
+                >h3:first-child{
+                    right: 0;
+                    width: 1535px;
+                    background: url(../images/title_left.png) center no-repeat;
+                    background-size: cover;
+                }
+                >div{
+                    float: left;
+                    height: 100%;
+                    /* 左侧第一列 */
+                    &:nth-child(2){
+                        width: 760px;
+                        background: red;
+                        /* 时间&&天气 */
+                        >div{
+                            ul{
+                                display: flex;
+                                padding-top: 44px;
+                                height: 218px;
+                                color: #ffffff;
+                                li{
+                                    flex: 1;
+                                    
+                                    &:nth-child(1){
+                                        width: 375px;
+                                        text-align: center;
+                                        p{
+                                            line-height: 1em;
+                                            &:nth-child(1){
+                                                margin-bottom: 18px;
+                                                font-size: 78px;
+                                            }
+                                            &:nth-child(2){
+                                                font-size: 36px;
+                                                span{
+                                                    &:nth-child(1){
+                                                        margin-right: 24px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        width: 385px;
+                                        p{
+                                            line-height: 1em;
+                                            &:nth-child(1){
+                                                font-size: 46px;
+                                                span{
+                                                    &:nth-child(1){
+                                                        margin-right: 18px;
+                                                    }
+                                                }
+                                            }
+                                            &:nth-child(2){
+                                                margin: 18px 0;
+                                                font-size: 30px;
+                                                span{
+                                                    &:nth-child(1){
+                                                        margin-right: 30px;
+                                                    }
+                                                }
+                                            }
+                                            &:nth-child(3){
+                                                font-size: 30px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /* 左侧第二列 */
+                    &:nth-child(3){
+                        width: 1368px;
+                        background: #fff;
+                    }
+                }
+            }
+            /* 中间 */
+            &:nth-child(2){
+                >h3:first-child{
+                    right: 0;
+                    width: 2128px;
+                    background: url(../images/title_middle.png) center no-repeat;
+                    background-size: cover;
+                }
+            }
+            /* 右侧 */
+            &:nth-child(3){
+                >h3:first-child{
+                    left: 0;
+                    width: 1534px;
+                    background: url(../images/title_right.png) center no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+}

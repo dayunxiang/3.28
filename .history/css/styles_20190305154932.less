@@ -1,0 +1,228 @@
+html,body{
+    background-color: #02041b;
+    >div.wrap{
+        display: flex;
+        width: 6384px;
+        height: 1216px;
+        >div{
+            position: relative;
+            flex: 1;
+            /* title */
+            >h3:first-child{
+                position: absolute;
+                top: 0;
+                height: 125px;
+            }
+            /* 左侧 */
+            &:nth-child(1){
+                >h3:first-child{
+                    right: 0;
+                    width: 1535px;
+                    background: url(../images/title_left.png) center no-repeat;
+                    background-size: cover;
+                }
+                >div{
+                    float: left;
+                    height: 100%;
+                    /* 左侧第一列 */
+                    &:nth-child(2){
+                        box-sizing: border-box;
+                        padding-left: 50px;
+                        width: 760px;
+                        >div{
+                            /* 时间&&天气 */
+                            &:nth-child(1){
+                                >ul{
+                                    box-sizing: border-box;
+                                    display: flex;
+                                    padding-top: 44px;
+                                    height: 200px;
+                                    color: #ffffff;
+                                    li{
+                                        flex: 1;
+                                        &:nth-child(1){
+                                            width: 375px;
+                                            p{
+                                                line-height: 1em;
+                                                &:nth-child(1){
+                                                    margin-bottom: 18px;
+                                                    font-size: 78px;
+                                                }
+                                                &:nth-child(2){
+                                                    padding-left: 12px;
+                                                    font-size: 36px;
+                                                    span{
+                                                        &:nth-child(1){
+                                                            margin-right: 24px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &:nth-child(2){
+                                            width: 385px;
+                                            p{
+                                                line-height: 1em;
+                                                &:nth-child(1){
+                                                    font-size: 46px;
+                                                    span{
+                                                        &:nth-child(1){
+                                                            margin-right: 18px;
+                                                        }
+                                                    }
+                                                }
+                                                &:nth-child(2){
+                                                    margin: 16px 0;
+                                                    font-size: 30px;
+                                                    span{
+                                                        &:nth-child(1){
+                                                            margin-right: 30px;
+                                                        }
+                                                    }
+                                                }
+                                                &:nth-child(3){
+                                                    font-size: 30px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                >p{
+                                    position: relative;
+                                    width: 670px;
+                                    height: 70px;
+                                    overflow: hidden;
+                                    span{
+                                        position: absolute;
+                                        width: 100%;
+                                        font-size: 24px;
+                                        line-height: 70px;
+                                        color: #1ca2e4;
+                                    }
+                                }
+                            }
+                            /* 值班长 && 当前重保 */
+                            &:nth-child(2){
+                                box-sizing: border-box;
+                                margin: 30px 0 40px;
+                                width: 655px;
+                                height: 236px;
+                                border-bottom: 2px dashed #50c7ff;
+                                >ul{
+                                    display: flex;
+                                    li{
+                                        &:nth-child(1){
+                                            width: 364px;
+                                            h3{
+                                                width: 145px;
+                                                height: 57px;
+                                                background: url(../images/title_banzhang.png) center no-repeat;
+                                                background-size: cover;
+                                            }
+                                            >p{
+                                                padding-left: 12px;
+                                                font-size: 24px;
+                                                line-height: 62px;
+                                                color: rgba(255,255,255,.3);
+                                            }
+                                            >div{
+                                                position: relative;
+                                                margin-left: 12px;
+                                                width: 242px;
+                                                height: 93px;
+                                                background: url(../images/photo_wrap.png) center no-repeat;
+                                                background-size: cover;
+                                                div{
+                                                    position: absolute;
+                                                    top: 5px;
+                                                    left: 4px;
+                                                    overflow: hidden;
+                                                    box-sizing: border-box;
+                                                    width: 82px;
+                                                    height: 82px;
+                                                    border: 1px solid #052e5c;
+                                                    border-radius: 5px;
+                                                    background-color: #07123e;
+                                                    img{
+                                                        width: 100%;
+                                                        height: 100%;
+                                                    }
+                                                }
+                                                p{
+                                                    position: absolute;
+                                                    &:nth-child(2){
+                                                        top: 0;
+                                                        left: 128px;
+                                                        width: 104px;
+                                                        font-size: 32px;
+                                                        text-align: center;
+                                                        line-height: 1em;
+                                                        color: #ffffff;
+                                                    }
+                                                    &:nth-child(3){
+                                                        left: 120px;
+                                                        bottom: 4px;
+                                                        font-size: 32px;
+                                                        line-height: 1em;
+                                                        color: rgba(255,255,255,.3);
+                                                    }
+                                                    &:nth-child(4){
+                                                        right: -74px;
+                                                        top: 2px;
+                                                        width: 63px;
+                                                        height: 30px;
+                                                        font-size: 22px;
+                                                        text-align: center;
+                                                        color: #00a0e9;
+                                                        background: url(../images/baiban.png) center no-repeat;
+                                                        background-size: cover;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &:nth-child(2){
+                                            h3{
+                                                width: 145px;
+                                                height: 57px;
+                                                background: url(../images/title_zhongbao.png) center no-repeat;
+                                                background-size: cover;
+                                            }
+                                            p{
+                                                font-size: 32px;
+                                                color: #ffffff;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                    /* 左侧第二列 */
+                    &:nth-child(3){
+                        width: 1368px;
+                        background: #fff;
+                    }
+                }
+            }
+            /* 中间 */
+            &:nth-child(2){
+                >h3:first-child{
+                    right: 0;
+                    width: 2128px;
+                    background: url(../images/title_middle.png) center no-repeat;
+                    background-size: cover;
+                }
+            }
+            /* 右侧 */
+            &:nth-child(3){
+                >h3:first-child{
+                    left: 0;
+                    width: 1534px;
+                    background: url(../images/title_right.png) center no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+}
